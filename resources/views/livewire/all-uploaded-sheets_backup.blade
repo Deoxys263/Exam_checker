@@ -1,0 +1,60 @@
+
+<div>
+    <section class="mt-10">
+        <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+            <!-- Start coding here -->
+            <div class="bg-white dark: bg-gray-800 overflow-hidden">
+                <div class="flex items-center justify-between d p-4">
+                    <div class="flex">
+                        <div class="relative w-full">
+                            <input type="text" class="bg-gray-50 border border-gray-300" placeholder="Search" required="">
+                        </div>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase ">
+                            <tr>
+                                <th class=" px-4 py-3">
+                                    Name
+                                </th>
+                                <th class=" px-4 py-3">
+                                    Package
+                                </th>
+                                <th class=" px-4 py-3">
+                                    Paper Name
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (isset($sheets) && count($sheets))
+                                @foreach ($sheets as $sheet)
+                                    <tr class="border-b dark:border-gray-700">
+                                        <th class="px-4 py-3">{{ (isset($sheet->student->student_name)?$sheet->student->student_name:'--') }}</th>
+                                        <th class="px-4 py-3">{{ (isset($sheet->package->package_name)?$sheet->package->package_name:'--') }}</th>
+                                        <th class="px-4 py-3">{{ (isset($sheet->filename->paper_name)?$sheet->filename->paper_name:'--') }}</th>
+                                    </tr>
+                                    @endforeach
+                                @endif
+                        </tbody>
+                    </table>
+                </div>
+                <div class="py-4 px-3">
+                    <div class="flex">
+                        <div class="flex space-x-4 items-center mb-3">
+                            <label for="">Per Page</label>
+                            <select name="" id="" wire:model.live="perPage">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="40">40</option>
+                            </select>
+                        </div>
+                    </div>
+                    {{ $sheets->links() }}
+                </div>
+            </div>
+        </div>
+    </section>
+    @livewireScripts
+</div>

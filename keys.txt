@@ -1,0 +1,6 @@
+Secret - EvQD7GFnpkEbfy
+KEY - rzp_test_b0g1BqCX1e79ty
+
+
+secret in profile
+// key myaccount & profile -> developer control
